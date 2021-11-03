@@ -1,9 +1,9 @@
 import {
-  AiFillInstagram,
-  AiFillTwitterSquare,
-  AiFillFacebook,
-} from 'react-icons/ai'
-import {FaPinterestSquare} from 'react-icons/fa'
+  FaPinterestSquare,
+  FaInstagram,
+  FaFacebookSquare,
+  FaTwitter,
+} from 'react-icons/fa'
 
 import './index.css'
 
@@ -21,14 +21,34 @@ export default function Footer() {
         </div>
         <div className="second-row">
           <p className="footer-para">
-            The only thing we are serious about is food
+            The only thing we are serious about is food. Contact us on
           </p>
         </div>
         <div className="third-row">
-          <FaPinterestSquare size="25" color="#ffffff" margin="20" />
-          <AiFillInstagram size="25" color="#ffffff" margin="20" />
-          <AiFillTwitterSquare size="25" color="#ffffff" margin="20" />
-          <AiFillFacebook size="25" color="#ffffff" margin="20" />
+          <FaPinterestSquare
+            testid="pintrest-social-icon"
+            size="25"
+            color="#ffffff"
+            margin="20"
+          />
+          <FaFacebookSquare
+            testid="instagram-social-icon"
+            size="25"
+            color="#ffffff"
+            margin="20"
+          />
+          <FaTwitter
+            testid="twitter-social-icon"
+            size="25"
+            color="#ffffff"
+            margin="20"
+          />
+          <FaInstagram
+            testid="facebook-social-icon"
+            size="25"
+            color="#ffffff"
+            margin="20"
+          />
         </div>
       </div>
     </>

@@ -28,7 +28,7 @@ class LoginForm extends Component {
       expires: 30,
       path: '/',
     })
-    history.replace('/')
+    history.push('/')
   }
 
   onSubmitFailure = errorMsg => {
@@ -92,7 +92,7 @@ class LoginForm extends Component {
           id="password-field"
           value={password}
           onChange={this.onChangePassword}
-          type={isPasswordShown ? 'text' : 'password'}
+          type="password"
         />
         <div className="checkbox-container">
           <input
