@@ -10,7 +10,6 @@ class LoginForm extends Component {
     password: '',
     showSubmitError: false,
     errorMsg: '',
-    isPasswordShown: false,
   }
 
   onChangeUsername = event => {
@@ -22,7 +21,10 @@ class LoginForm extends Component {
   }
 
   onSubmitSuccess = jwtToken => {
-    const {history} = this.props
+    const {
+      history,
+    } = this.props /* if the token submitted is valid then, we take history and if again logged in 
+    it will be history will push the home route    */
 
     Cookies.set('jwt_token', jwtToken, {
       expires: 30,
@@ -33,30 +35,27 @@ class LoginForm extends Component {
 
   onSubmitFailure = errorMsg => {
     this.setState({showSubmitError: true, errorMsg})
-  }
+  } /* if the token submitted is invalid it throws an error */
 
   onClickLoginForm = async event => {
     event.preventDefault()
     const {username, password} = this.state
-    const userDetails = {username, password}
+    const userDetails = {
+      username,
+      password,
+    } /* username and password are inserted into userDetails variable */
     const loginUrl = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
       body: JSON.stringify(userDetails),
     }
     const response = await fetch(loginUrl, options)
-    const data = await response.json()
+    const data = await response.json() /* response converted into json */
     if (response.ok) {
       this.onSubmitSuccess(data.jwt_token)
     } else {
       this.onSubmitFailure(data.error_msg)
     }
-  }
-
-  onClickCheckbox = () => {
-    this.setState(prevState => ({
-      isPasswordShown: !prevState.isPasswordShown,
-    }))
   }
 
   renderUsername = () => {
@@ -80,7 +79,7 @@ class LoginForm extends Component {
   }
 
   renderPassword = () => {
-    const {password, isPasswordShown} = this.state
+    const {password} = this.state
 
     return (
       <>
@@ -94,18 +93,6 @@ class LoginForm extends Component {
           onChange={this.onChangePassword}
           type="password"
         />
-        <div className="checkbox-container">
-          <input
-            className="cb-input"
-            type="checkbox"
-            id="checkbox-password"
-            isChecked={isPasswordShown}
-            onChange={this.onClickCheckbox}
-          />
-          <label htmlFor="checkbox-password" className="cb-label">
-            SHOW PASSWORD
-          </label>
-        </div>
       </>
     )
   }

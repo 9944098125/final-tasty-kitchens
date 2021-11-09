@@ -26,7 +26,7 @@ class RestaurantsPart extends Component {
   state = {
     restaurantsList: [],
     isLoading: false,
-    selectedSortByOption: sortByOptions[0].value,
+    selectedSortByOption: sortByOptions[1].value,
     activePage: 1,
     searchInput: '',
   }
@@ -80,6 +80,7 @@ class RestaurantsPart extends Component {
   }
 
   onClickLeftArrow = () => {
+    /* left button in the pagination navigates to the previous page is defined here */
     const {activePage} = this.state
     if (activePage > 1) {
       this.setState(
@@ -88,10 +89,12 @@ class RestaurantsPart extends Component {
         }),
         this.getRestaurantsList,
       )
+      /* getting the restaurants list in the page we go to */
     }
   }
 
   onClickRightArrow = () => {
+    /* this is the right button in the pagination to navigate to the next page is defined here */
     const {activePage} = this.state
     if (activePage <= 5) {
       this.setState(
@@ -133,6 +136,7 @@ class RestaurantsPart extends Component {
 
         {updatedList.length === 0 ? (
           <div className="empty-container">
+            {/* if updated list is empty a message with no restaurants will come */}
             <h1 className="no-rest-msg">No Restaurants Found</h1>
           </div>
         ) : (
@@ -141,6 +145,7 @@ class RestaurantsPart extends Component {
               {updatedList.map(each => (
                 <RestaurantItem restaurantData={each} key={each.id} />
               ))}
+              {/* if updated list have items then it should be assigned to the RestaurantItem component  */}
             </ul>
             <div className="pagination">
               <button

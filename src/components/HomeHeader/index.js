@@ -11,6 +11,7 @@ export default function HomeHeader(props) {
     updateSelectedSortByOption,
     onChangeSearchInput,
   } = props
+  /* The props are for the search input and for changing sort by options */
   const onChangeSortByOption = event => {
     updateSelectedSortByOption(event.target.value)
   }
@@ -45,7 +46,8 @@ export default function HomeHeader(props) {
           <div>
             <h1 className="popular-heading">Popular Restaurants</h1>
             <p className="popular-desc">
-              Select your favourite restaurant dish and make your day happy...
+              Select your favourite restaurant special dish and make your day
+              happy...
             </p>
           </div>
           <div className="sortBy-container">

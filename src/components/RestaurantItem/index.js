@@ -17,7 +17,7 @@ const RestaurantItem = props => {
           <p className="cuisine">{cuisine}</p>
           <div className="rating-container">
             <ImStarFull className="star" />
-            <h1 className="rating">{userRating.rating}</h1>
+            <h2 className="rating">{userRating.rating}</h2>
           </div>
         </div>
       </li>

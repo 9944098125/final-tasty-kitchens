@@ -68,7 +68,7 @@ class RestaurantFeature extends Component {
   }
 
   renderLoadingView = () => (
-    <div testid="restaurants-details-loader" className="carousel-loader">
+    <div testid="restaurant-details-loader" className="carousel-loader">
       <Loader type="TailSpin" color="#F7931E" height={50} width={50} />
     </div>
   )

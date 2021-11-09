@@ -14,6 +14,7 @@ const Header = props => {
   const {activeTab} = props
   const activeHome = activeTab === 'HOME' ? 'active' : ''
   const activeCart = activeTab === 'CART' ? 'active' : ''
+  /* setting the className for the active tab */
 
   return (
     <>
@@ -38,6 +39,7 @@ const Header = props => {
             <Link to="/cart" className={`nav-link ${activeCart}`}>
               <li>Cart</li>
             </Link>
+            {/* Popup added if the logout button is clicked */}
             <Popup
               modal
               trigger={
@@ -78,6 +80,8 @@ const Header = props => {
         </nav>
       </div>
       <div className="mobile-container">
+        {' '}
+        {/* same header for mobiles */}
         <nav className="header-container-mobile">
           <div className="logo-container">
             <img
